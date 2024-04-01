@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado, chefe!</title>
+</head>
+<body>
+    <div class="container">
+
+        <h1 style="color: rgb(255, 190, 26); font-size: 36px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; letter-spacing: 0.5px; font-weight: 400; text-shadow: 0 0 8px black;">OBRIGADO, CHEFE</h1>
+        <h2 style="color: white; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; letter-spacing: 0.5px; font-weight: 400; text-shadow: 0 0 6px black; margin-bottom: 20px;">Atributos melhorados:</h2>
+
+        <div class="att1">
+            <p class="atributo1">Salário:</p>
+            <p class="up1" style="color: rgb(5, 180, 5);">+40%</p>
+        </div>
+
+        <div class="att2">
+            <p class="atributo2">Gratidão ao chefe:</p>
+            <p class="up2" style="color: rgb(5, 180, 5);">+23%</p>
+        </div>
+
+        <div class="att3">
+            <p class="atributo3">Vontade de se demitir:</p>
+            <p class="up3" style="color: red">-32%</p>
+        </div>
+
+        <div class="att4">
+            <p class="atributo4">Mau humor:</p>
+            <p class="up4" style="color: red">-17%</p>
+        </div>
+
+        <button>DAR AUMENTO EXTRA</button>
+    </div>
+
+    <!-- Usei a imagem como background ao invés de pôr direto no css, mas não lembro o porquê... -->
+    <img src="./supersayajin.gif" alt="" class="background">
+</body>
+</html>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+    }
+
+    .background {
+        position: absolute;
+        opacity: 0.5;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+    }
+
+    h1 {
+        opacity: 0;
+        transition: 1s;
+    }
+
+    h2 {
+        opacity: 0;
+        transition: 1s;        
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 40px 60px 40px;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.264);
+        margin-top: 150px;
+    }
+
+    .att1, .att2, .att3, .att4 {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        opacity: 0;
+        translate: -100px;
+        transition: 1s;
+    }
+
+    .atributo1, .atributo2, .atributo3, .atributo4 {
+        font-size: 28px;
+        font-weight: bold;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .up1, .up2, .up3, .up4 {
+        font-size: 24px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: bold;
+        opacity: 0;
+    }
+
+    .container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.589);
+        z-index: -1;
+    }
+
+    button {
+        height: 40px;
+        background-color: rgb(255, 190, 26);
+        margin-top: 30px;
+        font-size: 18px;
+        font-weight: 800;
+        opacity: 0;
+        transition: 2s;
+    }
+    button:hover {
+        transform: scale(1.05);
+        transition: 0.5s;
+    }
+
+</style>
+
+<script>
+
+//A partir daqui eu tava com preguiça e queria gravar o vídeo logo kkkkkkkk
+//fiquem a vontade pra melhorar essa gambiarra
+
+    function showAtt1() {
+        document.querySelector('.att1').style.opacity = '1';
+        document.querySelector('.att1').style.translate = '0';
+    }
+
+    function showAtt2() {
+        document.querySelector('.att2').style.opacity = '1';
+        document.querySelector('.att2').style.translate = '0';
+    }
+
+    function showAtt3() {
+        document.querySelector('.att3').style.opacity = '1';
+        document.querySelector('.att3').style.translate = '0';
+    }
+
+    function showAtt4() {
+        document.querySelector('.att4').style.opacity = '1';
+        document.querySelector('.att4').style.translate = '0';
+    }
+
+    function showUp1() {
+        document.querySelector('.up1').style.opacity = '1';        
+    }
+
+    function showUp2() {
+        document.querySelector('.up2').style.opacity = '1';        
+    }
+    
+    function showUp3() {
+        document.querySelector('.up3').style.opacity = '1';        
+    }
+
+    function showUp4() {
+        document.querySelector('.up4').style.opacity = '1';        
+    }
+
+    function animation() {
+        document.querySelector('h1').style.opacity = 1;
+        
+        setTimeout(() => {
+            document.querySelector('h2').style.opacity = 1;
+        }, 300);
+        
+        setTimeout(() => {
+            showAtt1();
+        }, 500);
+
+        setTimeout(() => {
+            showAtt2();
+        }, 1000);
+
+        setTimeout(() => {
+            showAtt3();
+        }, 1500);
+
+        setTimeout(() => {
+            showAtt4();
+        }, 2000);
+
+        setTimeout(() => {
+            showUp1();
+        }, 3000);
+
+        setTimeout(() => {
+            showUp2();
+        }, 4000);
+
+        setTimeout(() => {
+            showUp3();
+        }, 5000);
+
+        setTimeout(() => {
+            showUp4();
+        }, 6000);
+
+        setTimeout(() => {
+            document.querySelector('button').style.opacity = '1';
+        }, 7000);
+    }
+
+    setTimeout(() => {
+        animation();            
+    }, 100);
+
+</script>
